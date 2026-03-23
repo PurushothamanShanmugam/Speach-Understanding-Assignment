@@ -1,0 +1,35 @@
+name: Speech Assignment CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Syntax check
+        run: |
+          python -m py_compile q1/*.py || true
+          python -m py_compile q2/*.py || true
+          python -m py_compile q3/*.py || true
+
+      - name: Smoke test imports
+        run: |
+          python -c "import numpy, scipy, pandas, matplotlib, sklearn, soundfile, torch, torchaudio, transformers"

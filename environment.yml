@@ -1,0 +1,22 @@
+name: speech_assign
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - numpy
+      - scipy
+      - pandas
+      - matplotlib
+      - scikit-learn
+      - soundfile
+      - librosa
+      - torch
+      - torchaudio
+      - torchvision
+      - transformers
+      - datasets
+      - accelerate
+      - jiwer

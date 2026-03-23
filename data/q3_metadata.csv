@@ -1,0 +1,4 @@
+file_name,gender,age_group,dialect
+sample1.wav,male,young,standard
+sample2.wav,female,old,regional
+sample3.wav,male,young,regional
